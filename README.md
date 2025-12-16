@@ -67,3 +67,4 @@ http://<Node-IP>:<NodePort>
 ```
 
 ---
+<img width="681" height="306" alt="image" src="https://github.com/user-attachments/assets/405e5f43-7f7f-457d-bbba-a32e34f7dd90" />
