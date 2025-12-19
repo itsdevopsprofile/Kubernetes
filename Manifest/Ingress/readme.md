@@ -45,6 +45,11 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
 ```
 
 ---
+# ✅ Apply cafe.yaml and ingress.yaml
+````
+kubectl apply -f cafe.yaml
+kubectl apply -f ingress.yaml
+````
 
 # ✅ Verify Everything
 
