@@ -1,0 +1,75 @@
+# --------------------
+# Coffee Deployment
+# --------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coffee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coffee
+  template:
+    metadata:
+      labels:
+        app: coffee
+    spec:
+      containers:
+      - name: coffee
+        image: abhipraydh96/coffee
+        ports:
+        - containerPort: 80
+---
+# --------------------
+# Coffee Service
+# --------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: coffee-svc
+spec:
+  selector:
+    app: coffee
+  ports:
+  - port: 80
+    targetPort: 80
+---
+# --------------------
+# Tea Deployment
+# --------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tea
+  template:
+    metadata:
+      labels:
+        app: tea
+    spec:
+      containers:
+      - name: tea
+        image: abhipraydh96/tea
+        ports:
+        - containerPort: 80
+---
+# --------------------
+# Tea Service
+# --------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: tea-svc
+spec:
+  selector:
+    app: tea
+  ports:
+  - port: 80
+    targetPort: 80
+---
+
