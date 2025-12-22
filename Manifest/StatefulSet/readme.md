@@ -1,33 +1,30 @@
-
-
-````
 apiVersion: apps/v1
 kind: StatefulSet
-metadata:
-  name: mariadb
+metadata: 
+  name: redis
 spec:
-  serviceName: "mariadb"
-  replicas: 3
+  serviceName: "redis"
+  replicas: 2
   selector:
     matchLabels:
-      app: mariadb
+      app: demo 
   template:
     metadata:
+      name: tmp-1
       labels:
-        app: mariadb
+        app: demo
     spec:
       containers:
-      - name: mariadb
-        image: mariadb:10.6
-        ports:
-        - containerPort: 3306
-          name: mariadb
+        - name: redis 
+          image: redis:5.0.5
+          ports:
+          - containerPort: 6379
+            name: redis
   volumeClaimTemplates:
   - metadata:
-      name: mariadb-data
+      name: redis-data
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: ["ReadWriteOnce"]
       resources:
         requests:
           storage: 1Gi
-````
