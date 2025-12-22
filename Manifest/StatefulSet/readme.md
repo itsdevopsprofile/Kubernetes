@@ -1,3 +1,4 @@
+````
 apiVersion: apps/v1
 kind: StatefulSet
 metadata: 
@@ -28,3 +29,4 @@ spec:
       resources:
         requests:
           storage: 1Gi
+````
