@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: coffee
-        image: abhipraydh96/coffee
+        image: devopsprofile/coffee
         ports:
         - containerPort: 80
 ---
@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
       - name: tea
-        image: abhipraydh96/tea
+        image: devopsprofile/tea
         ports:
         - containerPort: 80
 ---
