@@ -1,3 +1,8 @@
+<img width="1125" height="333" alt="image" src="https://github.com/user-attachments/assets/617391bf-3e52-4866-829e-aa6756376f0d" />
+
+
+
+
 ````
 apiVersion: apps/v1
 kind: StatefulSet
@@ -29,4 +34,10 @@ spec:
       resources:
         requests:
           storage: 1Gi
+````
+````
+kubectl apply -f sts.yaml
+````
+````
+kubectl get sts
 ````
