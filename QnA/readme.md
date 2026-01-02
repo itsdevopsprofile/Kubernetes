@@ -368,3 +368,245 @@ By checking metrics, logs, events, node health, and application dependencies ste
 
 ---
 
+
+
+---
+
+## 🛠️ TROUBLESHOOTING 
+
+---
+
+## 🔴 Pod is in CrashLoopBackOff. How do you troubleshoot?
+
+CrashLoopBackOff means the container is crashing repeatedly.
+
+Troubleshooting steps:
+1. Check pod details and events using `kubectl describe pod`
+2. Check application logs using `kubectl logs`
+3. Verify environment variables, ConfigMaps, and Secrets
+4. Check resource requests and limits (CPU / memory)
+5. Validate container command, image, and startup logic
+
+Common causes:
+- Application crash
+- Missing configuration
+- Incorrect command
+- Insufficient resources
+
+---
+
+## 🔴 Pod is stuck in Pending state. What could be the reasons?
+
+Common reasons include:
+- Insufficient CPU or memory on nodes
+- PVC not bound to a PV
+- Node selector, affinity, or taints blocking scheduling
+- Image pull issues
+
+Use:
+- `kubectl describe pod`
+- `kubectl get nodes`
+
+---
+
+## 🔴 Application is running but not accessible. How do you debug?
+
+Steps:
+1. Check Pod status
+2. Verify Service selector matches Pod labels
+3. Check Service type (ClusterIP / NodePort / LoadBalancer)
+4. Validate Ingress rules and controller
+5. Test internal connectivity using `kubectl exec`
+
+---
+
+## 🔴 Node is NotReady. What will you do?
+
+Possible causes:
+- Kubelet stopped
+- Disk or memory pressure
+- Network issues
+
+Steps:
+1. Check node status and conditions
+2. Restart kubelet service
+3. Check system logs
+4. Verify node connectivity with control plane
+
+---
+
+## 🔴 ImagePullBackOff error. How do you fix it?
+
+Causes:
+- Incorrect image name or tag
+- Private registry authentication failure
+- Network issues
+
+Fix:
+- Verify image name
+- Configure imagePullSecrets
+- Test registry connectivity
+
+---
+
+## 🔴 High CPU / Memory usage affecting other Pods. What will you do?
+
+Steps:
+1. Check metrics using Prometheus or `kubectl top`
+2. Verify resource requests and limits
+3. Tune application performance
+4. Apply HPA if required
+5. Use PodDisruptionBudget for stability
+
+---
+
+## 🔴 How do you debug DNS issues inside a cluster?
+
+Steps:
+1. Exec into Pod and test DNS resolution
+2. Verify CoreDNS Pods
+3. Check Service and namespace DNS names
+4. Inspect CoreDNS logs
+
+---
+
+## 🚀 ADVANCED KUBERNETES TOPICS
+
+---
+
+## 🔴 What are resource requests and limits, and why are they important?
+
+- Requests guarantee minimum resources
+- Limits cap maximum usage
+
+They help:
+- Prevent resource starvation
+- Enable efficient scheduling
+- Improve cluster stability
+
+---
+
+## 🔴 What are liveness, readiness, and startup probes?
+
+- **Liveness Probe** – Restarts container if app is unhealthy
+- **Readiness Probe** – Controls traffic routing
+- **Startup Probe** – Used for slow-starting applications
+
+---
+
+## 🔴 What are taints and tolerations? Give a real use case.
+
+Taints prevent Pods from being scheduled on nodes.  
+Tolerations allow specific Pods to run on those nodes.
+
+Use case:
+- Dedicated nodes for databases
+- Isolating GPU or critical workloads
+
+---
+
+## 🔴 What is PodDisruptionBudget (PDB)?
+
+PDB ensures a minimum number of Pods remain available during:
+- Node maintenance
+- Cluster upgrades
+- Voluntary disruptions
+
+---
+
+## 🔴 What is Kubernetes autoscaling hierarchy?
+
+- HPA – Scales Pods
+- VPA – Adjusts resource requests
+- Cluster Autoscaler – Scales nodes
+
+---
+
+## 🔴 Explain GitOps in Kubernetes.
+
+GitOps uses Git as the single source of truth.
+
+Workflow:
+1. Change pushed to Git
+2. GitOps tool (ArgoCD / Flux) detects change
+3. Cluster state is synced automatically
+
+Benefits:
+- Auditable
+- Consistent
+- Easy rollback
+
+---
+
+## 🔴 What is Immutable Infrastructure in Kubernetes?
+
+Infrastructure is never modified in-place.  
+Instead, new Pods replace old ones during updates.
+
+This ensures:
+- Predictability
+- Easy rollback
+- Reduced configuration drift
+
+---
+
+## 🔴 What is CNI and why is it important?
+
+CNI (Container Network Interface) manages Pod networking.
+
+Examples:
+- Calico
+- Cilium
+- Flannel
+
+It enables:
+- Pod-to-pod communication
+- Network policies
+- Security isolation
+
+---
+
+## 🔴 What are Network Policies?
+
+Network Policies control traffic between Pods.
+
+They help:
+- Restrict unauthorized access
+- Implement zero-trust networking
+- Secure microservices communication
+
+---
+
+## 🔴 How do you upgrade a Kubernetes cluster safely?
+
+Steps:
+1. Backup etcd
+2. Upgrade control plane
+3. Drain worker nodes one by one
+4. Upgrade kubelet and kube-proxy
+5. Validate workloads
+
+---
+
+## 🔴 How do you design Kubernetes for high availability?
+
+- Multiple control plane nodes
+- Multiple worker nodes
+- Replicas across nodes
+- Load balancers
+- Proper health checks
+
+---
+
+## 🔴 How do you design disaster recovery for Kubernetes?
+
+- Persistent volume backups
+- Multi-region or multi-cluster setup
+- Infrastructure as Code
+- Automated restore testing
+
+---
+
+
+
+
