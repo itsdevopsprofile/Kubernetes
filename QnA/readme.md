@@ -1,24 +1,165 @@
 
+---
 
-## 🔴 <span style="color:red">What is Kubernetes, and why is it important in the world of container orchestration?</span>
+## 🔴 What is Kubernetes?
 
-Kubernetes is an open-source container orchestration platform used to automate the deployment, scaling, and management of containerized applications.  
-It is important because modern applications are built using microservices and containers, which need to run reliably across multiple machines. Kubernetes handles container scheduling, networking, scaling, and failure recovery automatically, making applications highly available and production-ready.
+Kubernetes is an open-source container orchestration platform that automates deployment, scaling, networking, and self-healing of containerized applications across a cluster of machines.
 
 ---
 
-## 🔴 <span style="color:red">Explain the key components of Kubernetes and their roles in container management.</span>
+## 🔴 Why is Kubernetes important?
 
-Kubernetes has control plane and worker node components:
+Modern applications consist of many microservices running in containers. Kubernetes manages these containers efficiently by providing high availability, scalability, fault tolerance, and declarative infrastructure management.
 
-- **API Server** – Central entry point for all cluster operations  
-- **etcd** – Distributed key-value store that holds cluster state  
-- **Scheduler** – Decides which node a Pod should run on  
-- **Controller Manager** – Ensures the cluster matches the desired state  
-- **kubelet** – Runs on each node and manages Pods  
-- **kube-proxy** – Handles networking and service traffic  
+---
 
-Together, these components manage container lifecycle and cluster stability.
+## 🔴 What are the key features of Kubernetes?
+
+- Automatic container scheduling  
+- Self-healing (restart, reschedule)  
+- Horizontal & vertical scaling  
+- Service discovery & load balancing  
+- Rolling updates & rollbacks  
+- Configuration & secret management  
+- Cloud-agnostic design  
+
+---
+
+## 🔴 What is Container Orchestration?
+
+Container orchestration is the automated management of containerized applications, including deployment, networking, scaling, and lifecycle management. Kubernetes is the most widely used orchestration platform.
+
+---
+
+## 🔴 How are Docker and Kubernetes related?
+
+Docker is used to build and package containers.  
+Kubernetes is used to orchestrate and manage those containers at scale.
+
+---
+
+
+## 🔴 Explain Kubernetes architecture.
+
+Kubernetes consists of a **control plane** and **worker nodes**.
+
+### Control Plane:
+- **kube-apiserver** – Central API interface  
+- **etcd** – Stores cluster state  
+- **kube-scheduler** – Assigns Pods to nodes  
+- **controller-manager** – Maintains desired state  
+
+### Worker Node:
+- **kubelet** – Manages Pods on the node  
+- **kube-proxy** – Handles networking and traffic routing  
+- **Container Runtime** – Runs containers  
+
+---
+
+## 🔴 What is etcd?
+
+etcd is a distributed key-value store that stores all cluster configuration and state data. It is the single source of truth for Kubernetes.
+
+---
+
+## 🔴 What is kubelet?
+
+kubelet is an agent running on each worker node that ensures containers described in Pod specs are running and healthy.
+
+---
+
+## 🔴 What is kube-proxy?
+
+kube-proxy manages networking rules that allow Services to route traffic to the correct Pods using iptables or eBPF.
+
+---
+
+
+---
+
+## 🔴 What is a Pod?
+
+A Pod is the smallest deployable unit in Kubernetes.  
+It can contain one or more containers that share networking and storage.
+
+---
+
+
+## 🔴 What is a Deployment?
+
+A Deployment manages stateless applications and provides:
+- Replica management  
+- Rolling updates  
+- Rollbacks  
+
+---
+
+## 🔴 What is a StatefulSet?
+
+StatefulSet is used for stateful applications such as databases.  
+It provides:
+- Stable Pod names  
+- Persistent storage  
+- Ordered deployment and scaling  
+
+---
+
+## 🔴 ReplicaSet vs ReplicationController?
+
+ReplicaSet is the modern replacement for ReplicationController.  
+It supports set-based selectors and is used internally by Deployments.
+
+---
+
+---
+
+## 🔴 What is a Kubernetes Service?
+
+A Service provides a stable IP and DNS name to expose a set of Pods and distribute traffic among them.
+
+---
+
+## 🔴 Types of Services?
+
+- **ClusterIP** – Internal access  
+- **NodePort** – External access via node  
+- **LoadBalancer** – Cloud load balancer  
+
+---
+
+## 🔴 What is an Ingress?
+
+Ingress manages external HTTP/HTTPS access and provides routing based on hostnames and paths using an Ingress Controller (NGINX, ALB, etc.).
+
+---
+
+
+
+---
+
+## 🔴 ConfigMap vs Secret?
+
+- **ConfigMap** – Non-sensitive configuration  
+- **Secret** – Sensitive data (base64 encoded, can be encrypted at rest)
+
+---
+
+## 🔴 PersistentVolume (PV) vs PersistentVolumeClaim (PVC)?
+
+- **PV** – Actual storage resource  
+- **PVC** – Request for storage  
+
+
+---
+
+## 🔴 How does Kubernetes perform self-healing?
+
+- Restarts failed containers  
+- Reschedules Pods  
+- Maintains desired replica count
+---
+
+
 
 ---
 
