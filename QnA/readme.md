@@ -76,4 +76,164 @@ It requires a metrics provider such as Metrics Server or Prometheus.
 
 ---
 
-## 🔴 <span style="color:red">Describe
+## 🔴 <span style="color:red">Describe Kubernetes rolling updates and canary deployments. When and why would you use each approach?</span>
+
+Rolling updates replace Pods gradually to avoid downtime.  
+Canary deployments release a new version to a small subset of users to validate changes before full rollout.  
+Canary is preferred when risk is high.
+
+---
+
+## 🔴 <span style="color:red">Explain Kubernetes' role in self-healing and how it handles container failures.</span>
+
+Kubernetes continuously monitors Pods and nodes.  
+If a container crashes, Kubernetes restarts it.  
+If a Pod fails, a new one is created automatically to maintain the desired state.
+
+---
+
+## 🔴 <span style="color:red">What are Kubernetes ConfigMaps and Secrets, and how do they differ?</span>
+
+ConfigMaps store non-sensitive configuration data such as URLs or feature flags.  
+Secrets store sensitive data like passwords and tokens and are base64 encoded.
+
+---
+
+## 🔴 <span style="color:red">How would you upgrade a Kubernetes cluster to a new version while minimizing downtime?</span>
+
+The control plane is upgraded first, followed by worker nodes in a rolling manner.  
+Applications continue running using multiple replicas, ensuring no downtime.
+
+---
+
+## 🔴 <span style="color:red">What is a Helm chart, and how does it simplify application deployment?</span>
+
+Helm is a Kubernetes package manager.  
+Helm charts bundle Kubernetes manifests into reusable, configurable packages, making deployments consistent and easy to manage.
+
+---
+
+## 🔴 <span style="color:red">How do you monitor a Kubernetes cluster and its workloads?</span>
+
+Monitoring is done using Prometheus for metrics, Grafana for dashboards, and tools like Fluentd or Loki for logs.  
+Alerts are configured to detect failures early.
+
+---
+
+## 🔴 <span style="color:red">Explain Kubernetes RBAC and how you would configure it.</span>
+
+RBAC controls access to cluster resources.  
+Roles define permissions, and RoleBindings associate them with users or service accounts, following the principle of least privilege.
+
+---
+
+## 🔴 <span style="color:red">Describe Immutable Infrastructure and its relation to Kubernetes.</span>
+
+Immutable Infrastructure means servers or containers are never modified after deployment.  
+In Kubernetes, updates are done by replacing Pods, not changing running ones.
+
+---
+
+## 🔴 <span style="color:red">How do you handle secrets rotation in Kubernetes, and why is it important?</span>
+
+Secrets are rotated using external secret managers and rolling Pod restarts.  
+This reduces security risks caused by leaked or expired credentials.
+
+---
+
+## 🔴 <span style="color:red">Discuss challenges and best practices for running stateful applications in Kubernetes.</span>
+
+Challenges include storage persistence, backups, and recovery.  
+Best practices involve StatefulSets, persistent volumes, and scheduled backups.
+
+---
+
+## 🔴 <span style="color:red">Share an example of a complex Kubernetes project you've worked on.</span>
+
+Example: Deploying a CI/CD-driven three-tier application with Ingress, HPA, monitoring, secret management, and rolling updates while maintaining high availability.
+
+---
+
+## 🔹 SCENARIO-BASED QUESTIONS
+
+---
+
+## 🔴 <span style="color:red">How would you design a highly available microservices architecture on Kubernetes?</span>
+
+By deploying multiple replicas, using Services and Ingress, enabling HPA, implementing readiness probes, and distributing Pods across nodes.
+
+---
+
+## 🔴 <span style="color:red">How would you perform a zero-downtime deployment?</span>
+
+By using rolling updates or blue-green deployments with health checks and controlled traffic switching.
+
+---
+
+## 🔴 <span style="color:red">How would you ensure data persistence and backups for a database?</span>
+
+Using StatefulSets with persistent volumes and automated backup jobs or snapshots.
+
+---
+
+## 🔴 <span style="color:red">How would you implement a multi-cluster Kubernetes strategy?</span>
+
+Using GitOps, centralized CI/CD pipelines, shared monitoring, and service mesh for cross-cluster communication.
+
+---
+
+## 🔴 <span style="color:red">How would you diagnose high resource usage in a Pod?</span>
+
+By analyzing metrics, logs, resource limits, node pressure, and application behavior.
+
+---
+
+## 🔴 <span style="color:red">How would you enable secure pod-to-pod communication?</span>
+
+By defining Network Policies that allow only required traffic paths.
+
+---
+
+## 🔴 <span style="color:red">How would you configure HPA for variable traffic?</span>
+
+By setting CPU or memory thresholds along with minimum and maximum Pod limits.
+
+---
+
+## 🔴 <span style="color:red">Describe a GitOps workflow for Kubernetes.</span>
+
+All configuration changes are pushed to Git.  
+A GitOps tool automatically syncs the cluster with the repository state.
+
+---
+
+## 🔴 <span style="color:red">How would you migrate a monolithic application to Kubernetes?</span>
+
+By breaking the monolith into services gradually, containerizing components, and deploying incrementally.
+
+---
+
+## 🔴 <span style="color:red">How would you optimize resource utilization in Kubernetes?</span>
+
+By right-sizing requests and limits, enabling autoscaling, and removing unused workloads.
+
+---
+
+## 🔴 <span style="color:red">How would you design a disaster recovery plan?</span>
+
+By using backups, multi-cluster deployments, infrastructure-as-code, and automated recovery procedures.
+
+---
+
+## 🔴 <span style="color:red">How would you ensure consistency in hybrid cloud Kubernetes?</span>
+
+By standardizing configurations, using GitOps, and maintaining common tooling across clusters.
+
+---
+
+## 🔴 <span style="color:red">How would you troubleshoot a Kubernetes performance issue?</span>
+
+By checking metrics, logs, events, node health, and application dependencies step by step.
+
+---
+
