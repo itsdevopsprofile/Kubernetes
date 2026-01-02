@@ -207,11 +207,6 @@ A GitOps tool automatically syncs the cluster with the repository state.
 
 ---
 
-## 🔴 <span style="color:red">How would you migrate a monolithic application to Kubernetes?</span>
-
-By breaking the monolith into services gradually, containerizing components, and deploying incrementally.
-
----
 
 ## 🔴 <span style="color:red">How would you optimize resource utilization in Kubernetes?</span>
 
@@ -219,11 +214,6 @@ By right-sizing requests and limits, enabling autoscaling, and removing unused w
 
 ---
 
-## 🔴 <span style="color:red">How would you design a disaster recovery plan?</span>
-
-By using backups, multi-cluster deployments, infrastructure-as-code, and automated recovery procedures.
-
----
 
 ## 🔴 <span style="color:red">How would you ensure consistency in hybrid cloud Kubernetes?</span>
 
